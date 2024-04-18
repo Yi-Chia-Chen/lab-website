@@ -171,9 +171,9 @@ main {
 main .overlay {
     background-image: repeating-linear-gradient(
             160deg,
-            rgba(134, 38, 190, 0.18) 1%,
-            rgba(110, 40, 190, 0.18) 2%,
-            rgba(134, 38, 190, 0.18) 3%
+            rgba(92, 58, 156, 0.18) 1%,
+            rgba(105, 61, 177, 0.18) 2%,
+            rgba(92, 58, 156, 0.18) 3%
         ),
         radial-gradient(rgba(0, 0, 0, 0) 80%, black 100%),
         linear-gradient(black -10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, black 110%),
