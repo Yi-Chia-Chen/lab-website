@@ -27,14 +27,19 @@
             /></a>
         </header>
         <nav>
+            <div class='hamburger' id='hamburger'>
+                <div class='bar1'></div>
+                <div class='bar2'></div>
+                <div class='bar3'></div>
+            </div>
             <div class="button"><a href="javascript:void(0);" class="active">JOIN US</a></div>
-            <div class="button"><a href="../resources/" id="resources">RESOURCES</a></div>
-            <div class="button"><a href="../papers/" id="papers">PAPERS</a></div>
-            <div class="button"><a href="../research/" id="research">RESEARCH</a></div>
-            <div class="button"><a href="../people/" id="people">PEOPLE</a></div>
+            <div class="button"><a href="../resources/" class="resources">RESOURCES</a></div>
+            <div class="button"><a href="../papers/" class="papers">PAPERS</a></div>
+            <div class="button"><a href="../research/" class="research">RESEARCH</a></div>
+            <div class="button"><a href="../people/" class="people">PEOPLE</a></div>
         </nav>
         <main>
-            <div class="overlay"></div>
+            <div class="main-overlay"></div>
             <div class="corner-fan" id="top-left-fan"></div>
             <div class="corner-fan" id="top-right-fan"></div>
             <div class="corner-fan" id="bottom-left-fan"></div>
@@ -51,12 +56,19 @@
             <div class="corner-fan-border" id="top-right-fan-border"></div>
             <div class="corner-fan-border" id="bottom-left-fan-border"></div>
             <div class="corner-fan-border" id="bottom-right-fan-border"></div>
+            <div class="hamburger-nav-box">
+                <div class="button hidden"><a href="../people/" class="people">PEOPLE</a></div>
+                <div class="button hidden"><a href="../research/" class="research">RESEARCH</a></div>
+                <div class="button hidden"><a href="../papers/" class="papers">PAPERS</a></div>
+                <div class="button hidden"><a href="../resources/" class="resources">RESOURCES</a></div>
+                <div class="button hidden"><a href="javascript:void(0);" class="active">JOIN US</a></div>
+            </div>
             <div class="content">
                 <p>We are always looking for enthusiastic new lab members! Feel free to email Yi-Chia (ycc@ohio.edu) if you are interested in joining our lab!</p>
 
                 <div class="section-header">For Undergraduate Students</div>
                 <p>If you are interested in a future career in science or applying for a research-focused graduate program, the best way to prepare is to join a lab as early as possible! An undergraduate student in our lab may gain experiences from all aspects of research under close guidance, including reviewing literature, developing research questions, designing, programming, and running experiments, analyzing data, building computational models, interpreting results, presenting at academic conferences, and preparing manuscripts for publication.</p>
-                <p>We are looking for students who are excited about what our lab studies, deligent in reading relevant materials, and are interested in learning how to program experiments and analyze data. If you would like to join us, email Yi-Chia (ycc@ohio.edu) anytime! Please include the following information in your email: </p>
+                <p>We are looking for students who are excited about what our lab studies, diligent in reading relevant materials, and are interested in learning how to program experiments and analyze data. If you would like to join us, email Yi-Chia (ycc@ohio.edu) anytime! Please include the following information in your email: </p>
                 <ul>
                     <li>Your class year and major</li>
                     <li>Your unofficial transcript</li>
@@ -66,8 +78,20 @@
                 </ul>
 
                 <div class="section-header">For Prospective Graduate Students</div>
-                <p>We are actively looking for new graduate members right now! We are a new lab and thus our research interests are wider than what our current publications suggested. We will consider all applicants interested in perception and cognition in general. Also, feel free to get in touch with Yi-Chia (ycc@ohio.edu) for any questions before you apply to our program officially. </p>
+                <p>We are actively looking for new graduate members right now! We are a new lab and thus our research interests are wider than what our current publications suggest. We will consider all applicants interested in perception and cognition in general. Also, feel free to get in touch with Yi-Chia (ycc@ohio.edu) for any questions before you apply to our program officially. </p>
             </div>
         </main>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function() {
+                $('#hamburger').click(function() {
+                    $('#hamburger').toggleClass('change');
+                    $('.content').toggleClass('hidden');
+                    $('.main-overlay').toggleClass('menu-overlay');
+                    $('.hamburger-nav-box').toggleClass('open');
+                    $('.button').toggleClass('hidden');
+                });
+            });
+        </script>
     </body>
 </html>

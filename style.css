@@ -124,34 +124,45 @@ nav .button a.active:hover {
     color: black;
     cursor: default;
 }
-nav #people {
+nav .hamburger {
+    display: none;
+}
+main .button .active {
+    color: black;
+    cursor: default;
+}
+main .button a.active:hover {
+    color: black;
+    cursor: default;
+}
+a.people {
     color: rgb(134, 65, 0);
 }
-nav #people:hover {
+a.people:hover {
     color: rgb(44, 21, 0);
 }
-nav #research {
+a.research {
     color: rgb(77, 0, 129);
 }
-nav #research:hover {
+a.research:hover {
     color: rgb(15, 0, 26);
 }
-nav #papers {
+a.papers {
     color: rgb(9, 104, 0);
 }
-nav #papers:hover {
+a.papers:hover {
     color: rgb(3, 37, 0);
 }
-nav #resources {
+a.resources {
     color: rgb(129, 0, 0);
 }
-nav #resources:hover {
+a.resources:hover {
     color: rgb(34, 0, 0);
 }
-nav #joinus {
+a.joinus {
     color: rgb(0, 80, 117);
 }
-nav #joinus:hover {
+a.joinus:hover {
     color: rgb(0, 27, 39);
 }
 main {
@@ -163,13 +174,13 @@ main {
     top: var(--main-box-top);
     width: var(--main-box-width);
 }
-#home-page-main {
+.home-page-main {
     background: url("files/images/P1050969.JPG");
     background-size: cover;
     background-position-x: right;
     background-position-y: center;
 }
-main .overlay {
+main .main-overlay {
     background-image: repeating-linear-gradient(
             160deg,
             rgba(92, 58, 156, 0.18) 1%,
@@ -187,7 +198,7 @@ main .overlay {
     width: var(--main-box-width);
     z-index: -1;
 }
-main #home-page-overlay {
+main .home-page-overlay {
     background-image: linear-gradient(rgba(15, 35, 53, 0.7),rgba(15, 35, 53, 0.7)),
         radial-gradient(rgba(0, 0, 0, 0) 80%, black 100%),
         linear-gradient(black -10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, black 110%),
@@ -200,7 +211,7 @@ main .content {
     overflow-y: auto;
     scrollbar-color: var(--scrollbar-color);
     scrollbar-width: auto;
-    height: calc(var(--main-box-height) - 10vh - 3vw);
+    height: calc(var(--main-box-height) - 13vh);
 }
 main .section-header {
     font-size: 25px;
@@ -255,7 +266,8 @@ main #learn-more-button:hover {
     color: rgb(95, 224, 224);
 }
 main .photo {
-    width: 200px;
+    display: inline-block;
+    width: 150px;
 }
 main .profile {
     display: inline-block;
@@ -277,6 +289,12 @@ main .publications-conf {
     padding: 0 0 10px 40px;
     font-size: 16px;
     text-indent: -40px;
+}
+main .hamburger-nav-box {
+    display: none;
+}
+main .button {
+    display:none;
 }
 main .border {
     border: solid var(--border-color);
@@ -410,8 +428,136 @@ main #bottom-right-circle {
             4
     );
 }
+
+/*    ##     #####     #####     #####    */
+/*  ####    ##   ##   ##   ##   ##   ##   */
+/*    ##   ##     ## ##     ## ##     ##  */
+/*    ##   ##     ## ##     ## ##     ##  */
+/*    ##   ##     ## ##     ## ##     ##  */
+/*    ##    ##   ##   ##   ##   ##   ##   */
+/*  ######   #####     #####     #####    */
+
 @media screen and (max-width: 1000px) {
-    main {
-        width: 300px;
+    body {
+        height: 94vh;
+        margin: 3vh var(--main-box-left);
+    }
+    header {
+        background: none;
+        border: none;
+        height: 11vh;
+        width:  calc(11vh * 1.715);
+        padding: 0;
+        position: relative;
+        top: 0;
+        left: 8vw;
+    }
+    header .overlay {
+        display: none;
+    }
+    nav {
+        height: calc(var(--main-box-top) - 3vh);
+        left: calc(8vw + (11vh * 1.715));
+        padding-top: calc((var(--main-box-top) - 3vh - 39px) / 2);
+        padding-right: 8vw;
+        padding-bottom: calc((var(--main-box-top) - 3vh - 39px) / 2);
+        padding-left: calc(var(--main-box-width) - 8vw - (11vh * 1.715) - 35px - 8vw);
+        position: absolute;
+        top: 0;
+        width: calc(var(--main-box-width) - 8vw - (11vh * 1.715));
+    }
+    nav .button {
+        display: none;
+    }
+    nav .hamburger {
+        display: block;
+        width: 35px;
+        height: 27px;
+        margin: auto;
+        cursor: pointer;
+    }
+    nav .bar1, .bar2, .bar3 {
+        width: 35px;
+        height: 5px;
+        background-color: var(--border-color);
+        margin: 6px 0;
+        transition: 0.4s;
+    }
+    nav .change .bar1 {
+        -webkit-transform: rotate(-45deg) translate(-9px, 6px);
+        transform: rotate(-45deg) translate(-9px, 6px);
+    }
+    nav .change .bar2 {
+        opacity: 0;
+    }
+    nav .change .bar3 {
+        -webkit-transform: rotate(45deg) translate(-8px, -8px);
+        transform: rotate(45deg) translate(-8px, -8px);
+    }
+    main .hamburger-nav-box {
+        display: block;
+        padding: 0;
+        position: relative;
+        margin: 0 auto;
+        width: var(--main-box-width);
+        font-size: 30px;
+        height: 0;
+        transition: 0.5s;
+        overflow: hidden;
+    }
+    main .open {
+        height: var(--main-box-height);
+        padding: calc(var(--main-box-height) / 15) 0;
+    }
+    main .button {
+        --overall-height: calc(var(--main-box-height) - (2 * (var(--main-box-height) / 15)));
+        display: block;
+        font-weight: 600;
+        width:  var(--main-box-width);
+        height: calc(var(--overall-height) / 5);
+        padding: calc(var(--overall-height) / 15) 0;
+        text-align: center;
+    }
+    .hidden {
+        display: none;
+        transition: all 0.5s ease;
+    }
+    .menu-background {
+        background-image: url("files/images/nami.webp");
+        background-repeat: repeat;
+        background-size: auto;
+    }
+    main .menu-overlay {
+        background-image: linear-gradient(rgba(171, 150, 189, 0.6),rgba(171, 150, 189, 0.6)),
+            radial-gradient(rgba(0, 0, 0, 0) 80%, black 100%),
+            linear-gradient(black -10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, black 110%),
+            linear-gradient(90deg, black -10%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 95%, black 110%);
+        background-repeat: repeat;
+    }
+    main .content {
+        margin: 5vh 3vw;
+        padding: 0 3vw;
+        overflow-x: hidden;
+        overflow-y: auto;
+        scrollbar-color: var(--scrollbar-color);
+        scrollbar-width: auto;
+        height: calc(var(--main-box-height) - 10vh);
+    }
+    main #home-page-content {
+        padding: 0 3vw;
+        top: 7vh;
+    }
+    main #home-page-content p {
+        margin: 10px;
+    }
+    main .indent {
+        text-indent: 0;
+    }
+    main #learn-more-button {
+        position: relative;
+        margin: 40px auto 0 auto;
+    }
+    main .photo {
+        width: 100px;
     }
 }

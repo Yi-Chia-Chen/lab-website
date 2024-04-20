@@ -27,14 +27,19 @@
             /></a>
         </header>
         <nav>
-            <div class="button"><a href="../joinus/" id="joinus">JOIN US</a></div>
+            <div class='hamburger' id='hamburger'>
+                <div class='bar1'></div>
+                <div class='bar2'></div>
+                <div class='bar3'></div>
+            </div>
+            <div class="button"><a href="../joinus/" class="joinus">JOIN US</a></div>
             <div class="button"><a href="javascript:void(0);" class="active">RESOURCES</a></div>
-            <div class="button"><a href="../papers/" id="papers">PAPERS</a></div>
-            <div class="button"><a href="../research/" id="research">RESEARCH</a></div>
-            <div class="button"><a href="../people/" id="people">PEOPLE</a></div>
+            <div class="button"><a href="../papers/" class="papers">PAPERS</a></div>
+            <div class="button"><a href="../research/" class="research">RESEARCH</a></div>
+            <div class="button"><a href="../people/" class="people">PEOPLE</a></div>
         </nav>
         <main>
-            <div class="overlay"></div>
+            <div class="main-overlay"></div>
             <div class="corner-fan" id="top-left-fan"></div>
             <div class="corner-fan" id="top-right-fan"></div>
             <div class="corner-fan" id="bottom-left-fan"></div>
@@ -51,6 +56,13 @@
             <div class="corner-fan-border" id="top-right-fan-border"></div>
             <div class="corner-fan-border" id="bottom-left-fan-border"></div>
             <div class="corner-fan-border" id="bottom-right-fan-border"></div>
+            <div class="hamburger-nav-box">
+                <div class="button hidden"><a href="../people/" class="people">PEOPLE</a></div>
+                <div class="button hidden"><a href="../research/" class="research">RESEARCH</a></div>
+                <div class="button hidden"><a href="../papers/" class="papers">PAPERS</a></div>
+                <div class="button hidden"><a href="javascript:void(0);" class="active">RESOURCES</a></div>
+                <div class="button hidden"><a href="../joinus/" class="joinus">JOIN US</a></div>
+            </div>
             <div class="content">
                 <div class="section-header first-header">Online Experiments & Personal Website Workshop (by 2023-06-29)</div>
                 <ul>
@@ -125,5 +137,17 @@
 
             </div>
         </main>
+        <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js'></script>
+        <script>
+            $(document).ready(function() {
+                $('#hamburger').click(function() {
+                    $('#hamburger').toggleClass('change');
+                    $('.content').toggleClass('hidden');
+                    $('.main-overlay').toggleClass('menu-overlay');
+                    $('.hamburger-nav-box').toggleClass('open');
+                    $('.button').toggleClass('hidden');
+                });
+            });
+        </script>
     </body>
 </html>
