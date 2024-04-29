@@ -53,10 +53,8 @@ body {
     font-size: 20px;
     font-weight: 300;
     height: 90vh;
-    /* height: calc(var(--vh, 1vh) * 50); */
     line-height: 1.5em;
     margin: 5vh var(--main-box-left);
-    /* margin: calc(var(--vh, 1vh) * 5) var(--main-box-left); */
     padding: 0;
     position: relative;
     width: var(--main-box-width);
