@@ -6,6 +6,7 @@
     --main-border-width: 4px;
     --main-box-width: 90vw;
     --main-box-height: 79vh;
+    --main-box-height-perc: 79%;
     --main-box-left: 5vw;
     --main-box-top: 16vh;
     --scrollbar-color: #366096;
@@ -52,11 +53,14 @@ body {
     font-size: 20px;
     font-weight: 300;
     height: 90vh;
+    /* height: calc(var(--vh, 1vh) * 50); */
     line-height: 1.5em;
     margin: 5vh var(--main-box-left);
+    /* margin: calc(var(--vh, 1vh) * 5) var(--main-box-left); */
     padding: 0;
     position: relative;
     width: var(--main-box-width);
+    overflow: hidden;
 }
 header {
     border: 8px double var(--border-color);
@@ -168,7 +172,7 @@ a.joinus:hover {
 main {
     background: url("files/images/nami.webp");
     background-repeat: repeat;
-    height: var(--main-box-height);
+    height: var(--main-box-height-perc);
     left: var(--main-box-left);
     position: fixed;
     top: var(--main-box-top);
@@ -191,7 +195,7 @@ main .main-overlay {
         linear-gradient(black -10%, rgba(0, 0, 0, 0) 10%, rgba(0, 0, 0, 0) 90%, black 110%),
         linear-gradient(90deg, black -10%, rgba(0, 0, 0, 0) 5%, rgba(0, 0, 0, 0) 95%, black 110%);
     background-repeat: repeat;
-    height: var(--main-box-height);
+    height: var(--main-box-height-perc);
     left: var(--main-box-left);
     position: fixed;
     top: var(--main-box-top);
@@ -211,7 +215,7 @@ main .content {
     overflow-y: auto;
     scrollbar-color: var(--scrollbar-color);
     scrollbar-width: auto;
-    height: calc(var(--main-box-height) - 13vh);
+    height: calc(100% - 13vh);
 }
 main .section-header {
     font-size: 25px;
@@ -307,7 +311,7 @@ main #top-main-border {
     width: calc(var(--main-box-width) - (2 * var(--fan-size)));
 }
 main #right-main-border {
-    height: calc(var(--main-box-height) - (2 * var(--fan-size)));
+    height: calc(var(--main-box-height-perc) - (2 * var(--fan-size)));
     left: calc(
         var(--main-box-left) + var(--main-box-width) -
             (var(--main-border-width) / 2)
@@ -319,13 +323,13 @@ main #bottom-main-border {
     height: 0;
     left: calc(var(--main-box-left) + var(--fan-size));
     top: calc(
-        var(--main-box-top) + var(--main-box-height) - var(--main-border-width) /
+        var(--main-box-top) + var(--main-box-height-perc) - var(--main-border-width) /
             2
     );
     width: calc(var(--main-box-width) - (2 * var(--fan-size)));
 }
 main #left-main-border {
-    height: calc(var(--main-box-height) - (2 * var(--fan-size)));
+    height: calc(var(--main-box-height-perc) - (2 * var(--fan-size)));
     top: calc(var(--main-box-top) + var(--fan-size));
     width: 0;
 }
@@ -350,11 +354,11 @@ main #top-right-fan-border {
 main #bottom-left-fan-border {
     transform: rotate(90deg);
     left: var(--main-box-left);
-    top: calc(var(--main-box-top) + var(--main-box-height) - var(--fan-size));
+    top: calc(var(--main-box-top) + var(--main-box-height-perc) - var(--fan-size));
 }
 main #bottom-right-fan-border {
     left: calc(var(--main-box-left) + var(--main-box-width) - var(--fan-size));
-    top: calc(var(--main-box-top) + var(--main-box-height) - var(--fan-size));
+    top: calc(var(--main-box-top) + var(--main-box-height-perc) - var(--fan-size));
 }
 main .corner-fan {
     background-image: url("files/images/ep_naturalwhite.png"),
@@ -378,11 +382,11 @@ main #top-right-fan {
 main #bottom-left-fan {
     transform: rotate(90deg);
     left: var(--main-box-left);
-    top: calc(var(--main-box-top) + var(--main-box-height) - var(--fan-size));
+    top: calc(var(--main-box-top) + var(--main-box-height-perc) - var(--fan-size));
 }
 main #bottom-right-fan {
     left: calc(var(--main-box-left) + var(--main-box-width) - var(--fan-size));
-    top: calc(var(--main-box-top) + var(--main-box-height) - var(--fan-size));
+    top: calc(var(--main-box-top) + var(--main-box-height-perc) - var(--fan-size));
 }
 main .corner-circle {
     background-image: url("files/images/origami.png"),
@@ -414,7 +418,7 @@ main #top-right-circle {
 main #bottom-left-circle {
     left: calc(var(--main-box-left) - var(--circle-size) / 4);
     top: calc(
-        var(--main-box-top) + var(--main-box-height) - 3 * var(--circle-size) /
+        var(--main-box-top) + var(--main-box-height-perc) - 3 * var(--circle-size) /
             4
     );
 }
@@ -424,7 +428,7 @@ main #bottom-right-circle {
             4
     );
     top: calc(
-        var(--main-box-top) + var(--main-box-height) - 3 * var(--circle-size) /
+        var(--main-box-top) + var(--main-box-height-perc) - 3 * var(--circle-size) /
             4
     );
 }
@@ -495,7 +499,8 @@ main #bottom-right-circle {
         transform: rotate(45deg) translate(-8px, -8px);
     }
     main .hamburger-nav-box {
-        display: block;
+        display: flex;
+        flex-direction: column;
         padding: 0;
         position: relative;
         margin: 0 auto;
@@ -506,16 +511,17 @@ main #bottom-right-circle {
         overflow: hidden;
     }
     main .open {
-        height: var(--main-box-height);
-        padding: calc(var(--main-box-height) / 15) 0;
+        height: 100%;
+        padding: calc(100% / 15) 0;
     }
     main .button {
-        --overall-height: calc(var(--main-box-height) - (2 * (var(--main-box-height) / 15)));
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-weight: 600;
         width:  var(--main-box-width);
-        height: calc(var(--overall-height) / 5);
-        padding: calc(var(--overall-height) / 15) 0;
+        height: calc(100% / 5);
+        padding: calc(100% / 15) 0;
         text-align: center;
     }
     .hidden {
@@ -541,7 +547,7 @@ main #bottom-right-circle {
         overflow-y: auto;
         scrollbar-color: var(--scrollbar-color);
         scrollbar-width: auto;
-        height: calc(var(--main-box-height) - 10vh);
+        height: calc(100% - 10vh);
     }
     main #home-page-content {
         padding: 0 3vw;
